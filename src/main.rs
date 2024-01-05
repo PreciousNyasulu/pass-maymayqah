@@ -32,7 +32,7 @@ impl Password {
 fn main() {
     let matches = App::new("pass-maymayqah")
         .version("1.0")
-        .author("Your Name")
+        .author("Precious Nyasulu")
         .about("A basic CLI app for generating passwords")
         .arg(Arg::with_name("length")
             .short("l")
@@ -41,6 +41,13 @@ fn main() {
             .help("Sets the password's length")
             .required(true)
             .takes_value(true))
+        .arg(
+            Arg::with_name("copy-to-clipboard")
+            .short("cp")
+            .long("copy")
+            .value_name("copy")
+            .help("Copies the passwor ")
+        )
         .get_matches();
 
     let len: usize = matches.value_of("length").unwrap_or_default().parse().unwrap_or_default();
