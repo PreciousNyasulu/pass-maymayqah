@@ -1,1 +1,10 @@
-/target
+# Ignore compiled files
+/target/
+Cargo.lock
+
+# Ignore compiled binaries and example executables
+*.rs.bk
+/target/
+
+# Ignore .env file
+.env
