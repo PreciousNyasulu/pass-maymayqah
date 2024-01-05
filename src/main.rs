@@ -32,7 +32,7 @@ impl Password {
 fn main() {
     let matches = App::new("pass-maymayqah")
         .version("1.0")
-        .author("Your Name")
+        .author("Precious Nyasulu")
         .about("A basic CLI app for generating passwords")
         .arg(Arg::with_name("length")
             .short("l")
