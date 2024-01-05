@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 clap = "2.33.0"
 rand = "0.8.5"
+colored = "2.1.0"
