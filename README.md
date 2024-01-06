@@ -30,7 +30,7 @@ $ pass-maymayqah -l 12    //12 being the number of password characters
 
    ```bash
    git clone https://github.com/preciousnyasulu/pass-maymayqah.git
-   cd your-password-generator
+   cd pass-maymayqah
    ```
 
 2. Build the program using Cargo:
