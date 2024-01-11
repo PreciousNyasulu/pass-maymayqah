@@ -3,6 +3,7 @@
 use clap::{App, Arg};
 use rand::Rng;
 use colored::Colorize; // Colorize package
+use crate::clipboard::Copy;
 
 struct Password {
     length: usize,
@@ -46,7 +47,7 @@ fn main() {
             .short("cp")
             .long("copy")
             .value_name("copy")
-            .help("Copies the passwor ")
+            .help("Copies the password to clipboard")
         )
         .get_matches();
 
