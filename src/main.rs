@@ -1,33 +1,7 @@
 // src/main.rs
 
 use clap::{App, Arg};
-use rand::Rng;
-use colored::Colorize; // Colorize package
-
-struct Password {
-    length: usize,
-}
-
-impl Password {
-    fn new(len: usize) -> Self {
-        Self { length: len }
-    }
-
-    fn generate(&self) {
-        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
-        let mut rng = rand::thread_rng();
-        let password: String = (0..self.length)
-            .map(|_| characters.chars().nth(rng.gen_range(0..characters.len())).unwrap())
-            .collect();
-
-        let mut comment = String::new();
-        if self.length < 8 {
-            comment = "// For security reasons, we recommend 8-plus character length".yellow().to_string();
-        }
-
-        println!("Here is your password: {}  {}", password.green(), comment.red())
-    }
-}
+use pass_maymayqah::password::Password;
 
 fn main() {
     let matches = App::new("pass-maymayqah")
@@ -41,11 +15,21 @@ fn main() {
             .help("Sets the password's length")
             .required(true)
             .takes_value(true))
+        .arg(
+            Arg::with_name("copy")
+            .short("cp")
+            .long("copy")
+            .value_name("copy")
+            .help("Copies the password to clipboard")
+        )
         .get_matches();
 
-    let len: usize = matches.value_of("length").unwrap_or_default().parse().unwrap_or_default();
+    let length: usize = matches.value_of("length").unwrap_or_default().parse().unwrap_or_default();
 
-    let cli_app = Password::new(len);
+    // copies the password to clipboard if flag is present
+    let copy : bool = matches.is_present("copy");
+
+    let cli_app: Password = Password::new(length,copy);
 
     cli_app.generate();
 }
