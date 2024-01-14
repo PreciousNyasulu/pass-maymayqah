@@ -12,6 +12,7 @@ This Rust-based password generator provides a straightforward way to generate st
 ### Command-line Options
 
 - `-l`, `--length`: Sets the password length.
+- `-cp`, `--copy`: Copies the password to the clipboard.
 
 ### Examples
 
