@@ -19,7 +19,6 @@ fn main() {
             Arg::with_name("copy")
             .short("cp")
             .long("copy")
-            .value_name("copy")
             .help("Copies the password to clipboard")
         )
         .get_matches();
